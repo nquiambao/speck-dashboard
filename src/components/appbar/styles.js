@@ -15,6 +15,10 @@ const AppBarItems = styled.ul`
 `
 
 const AppBarItem = styled.li`
+  a {
+    font-style: normal;
+  }
+  
   a:after {
     display: none;
   }
