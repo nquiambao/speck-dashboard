@@ -1,49 +1,84 @@
-import React from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import React, { useState } from 'react'
 
-import {IoChevronForward} from 'react-icons/io5'
-import {LoginPageStyles, LoginExtras, LoginForm, LoginBannerSection, LoginFormSection, LoginContainer} from './styles'
-import {Brand} from './../../components/branding'
-import {SubmitButton} from './../../ui/buttons'
-import {Label, Input} from './../../ui/forms'
+import { Link, useNavigate } from 'react-router-dom'
+import { signInWithEmailAndPassword } from "firebase/auth"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { BiMessageSquareError, BiMessageCheck } from 'react-icons/bi'
 
-function LoginPage (props) {
-  let navigation = useNavigate()
+import { auth } from 'libs/firebase'
+import { Brand } from 'components/branding'
+import { SubmitButton } from 'ui/buttons'
+import { Label, Input } from 'ui/forms'
+import { LoginPageStyles, LoginExtras, LoginForm, LoginBannerSection, LoginFormSection, LoginContainer } from './styles'
 
-  function onHandleSubmit(e) {
+function LoginPage(props) {
+  const navigate = useNavigate()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const notify = (error) => toast.error(error.code,{
+    position: "top-center",
+    autoClose: 10000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    icon: <BiMessageSquareError/>
+  })
+
+  const notifySuccess = (success) => toast.success(success.code,{
+    position: "top-center",
+    autoClose: 4000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    icon: <BiMessageCheck />
+  })
+
+  function onLoginRequest(e) {
     e.preventDefault()
-    navigation('/dashboard')
+    signInWithEmailAndPassword(auth, email, password)
+    .then(res=>{
+      notifySuccess("done")
+      navigate("dashboard")
+    })
+    .catch(error=>{
+      notify(error)
+    })
   }
+
   return (
     <>
       <LoginContainer>
         <LoginPageStyles>
+          <ToastContainer />
           <LoginBannerSection>
             <p>See your world clearly.</p>
           </LoginBannerSection>
           <LoginFormSection>
-            <Brand/>
+            <Brand />
             <p>Welcome back!</p>
-            <LoginForm onSubmit={onHandleSubmit}>
+            <LoginForm onSubmit={onLoginRequest}>
               <Label htmlFor="email" fw="600" margin="0 0 5px 0">Email</Label>
-              <Input type="text" id="email" placeholder="janedoe@gmail.com" required bbottom="1px solid transparent" />
+              <Input type="text" id="email" placeholder="janedoe@gmail.com" bbottom="1px solid transparent" onChange={(e)=>setEmail(e.target.value)} />
+
               <Label htmlFor="password" fw="600" margin="0 0 5px 0">Password</Label>
-              <Input type="password" id="password" placeholder="●●●●●●●●" required bbottom="1px solid transparent" />
+              <Input type="password" id="password" placeholder="●●●●●●●●" bbottom="1px solid transparent" onChange={(e)=>setPassword(e.target.value)} />
+
               <LoginExtras>
                 <div>
-                  <Input type="checkbox" id="remember" width="auto" margin="0" cursor="pointer"/>
+                  <Input type="checkbox" id="remember" width="auto" margin="0" cursor="pointer" />
                   <Label htmlFor="remember" padding="0 0 0 5px" cursor="pointer">Remember me</Label>
                 </div>
                 <Link to="/">Forgot email/password?</Link>
               </LoginExtras>
+
               <SubmitButton type="submit">Sign in</SubmitButton>
             </LoginForm>
-            <Link to="/404">
-              <span>
-                404 Page Not Found
-                <IoChevronForward size="1rem"/>
-              </span>
-            </Link>
           </LoginFormSection>
         </LoginPageStyles>
       </LoginContainer>

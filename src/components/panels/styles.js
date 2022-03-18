@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const PanelStyles = styled.section`
-  margin: 30px 0 30px 30px;
+  margin: 30px;
   padding: 30px;
   width: calc(100% - 234.3px);
   background-color: #fff;

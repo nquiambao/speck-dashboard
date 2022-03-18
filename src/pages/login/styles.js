@@ -29,6 +29,17 @@ const LoginPageStyles = styled.div`
     gap: 3px;
     align-items: center;
   }
+
+  .Toastify__toast--error {
+    background-color: #A62639;
+    color: white;
+  }
+
+  .Toastify__toast-icon svg {
+    height: 20px;
+    width: 20px;
+  }
+
 `;
 
 const LoginContainer = styled.div`

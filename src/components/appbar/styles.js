@@ -42,9 +42,7 @@ const AppBarItemGroup = styled.li`
 `
 
 const AppBarContainer = styled.div`
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0.5rem 0;
+  padding: 0.5rem 2rem 0.5rem 0.5rem;
 `
 
 

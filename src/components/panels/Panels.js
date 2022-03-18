@@ -17,10 +17,6 @@ function Panels (props) {
             </AddProductButton>
           </header>
           <main>
-            <Link to="/404">
-              404 Page Not Found
-              <IoChevronForward size="1rem"/>
-            </Link>
           </main>
         </PanelStyles>
       </>
