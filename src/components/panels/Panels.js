@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-import {IoAddCircle, IoChevronForward} from 'react-icons/io5'
+import {IoAddCircle} from 'react-icons/io5'
 import {PanelStyles} from './styles'
 import {AddProductButton} from './../../ui/buttons'
 
