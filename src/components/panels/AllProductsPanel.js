@@ -13,7 +13,15 @@ function AllProductsPanel ({title, ...props}) {
             <h1>{title || "Display Panel"}</h1>
           </PanelHeader>
           <PanelBody>
-            
+          {/* <ProductPreviewStyles  {...props}>
+            <ProductImage>
+              <img src={productImage.previewImage} alt="speck glasses" width="320" height="184" />
+            </ProductImage>
+            <ProductName>{productName}</ProductName>
+            <ProductPrice>${productPrice}</ProductPrice>
+            <ProductDescription>{productDescription}</ProductDescription>
+
+          </ProductPreviewStyles> */}
           </PanelBody>
         </PanelStyles>
       </>

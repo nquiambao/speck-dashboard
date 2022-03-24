@@ -3,14 +3,21 @@ import React, { useState } from 'react'
 import { useNumberFormat } from 'hooks/useNumberFormat'
 import { useAddNewProduct } from 'hooks/useAddNewProduct'
 import { ProductEditor } from "components/products/ProductEditor"
-import ProductPreview from 'assets/images/glasses.jpg';
 import { AddProductStyles } from './styles'
+import { EditorFeedback } from 'components/products/EditorFeedback'
+import ProductPreview from 'assets/images/default.jpg';
+
+const defaults = {
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris eleifend, quam a vulputate dictum, massa quam dapibus leo, eget vulputate orci purus ut lorem. In fringilla mi in ligula. Pellentesque aliquam quam vel dolor.',
+  name: 'Product Name',
+  price: 199.99
+}
 
 function AddProduct ({children, ...props})  {
   const [isWriting, setIsWriting] = useState(false)
-  const [productName, setProductName] = useState('Product Name')
-  const [productPrice, setProductPrice] = useState('100.00')
-  const [productDescription, setProductDescription] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris eleifend, quam a vulputate dictum, massa quam dapibus leo, eget vulputate orci purus ut lorem. In fringilla mi in ligula. Pellentesque aliquam quam vel dolor.')
+  const [productName, setProductName] = useState(defaults.name)
+  const [productPrice, setProductPrice] = useState(defaults.price)
+  const [productDescription, setProductDescription] = useState(defaults.description)
   const [productImage, setProductImage] = useState({previewImage:ProductPreview, file:null})
   const [loading, productLoader] = useAddNewProduct()
   const formatter = useNumberFormat()
@@ -36,13 +43,15 @@ function AddProduct ({children, ...props})  {
     }
     setIsWriting(true)
     productLoader(productData, productImage.file)
+    setProductDescription(defaults.description)
+    setProductImage({previewImage:ProductPreview, file:null})
+    setProductName(defaults.name)
+    setProductPrice(defaults.price)
   }
 
   if (isWriting) {
     return (
-      <>
-        <h1>Editor Feedback Component</h1>
-      </>
+      <EditorFeedback status={loading} writeCompleted={setIsWriting} />
     )
   } else {
     return (

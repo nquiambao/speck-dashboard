@@ -4,7 +4,7 @@ import { signOut } from 'firebase/auth'
 import { auth } from 'libs/firebase'
 import { Link } from 'react-router-dom'
 
-import {IoHome, IoReceipt, IoLayers, IoGrid, IoStatsChart, IoStarHalf, IoPricetags, IoMegaphone, IoBagHandle, IoCar, IoAnalytics, IoCalendar, IoHelp, IoLogOut} from 'react-icons/io5'
+import {IoHome, IoAddCircle, IoPencil, IoLayers, IoGrid, IoStatsChart, IoStarHalf, IoPricetags, IoBagHandle, IoCar, IoAnalytics, IoCalendar, IoHelp, IoLogOut} from 'react-icons/io5'
 import {SideBarStyles, LinkItem, LinkGroup} from './styles'
 import {Button} from './../../ui/buttons'
 
@@ -30,22 +30,21 @@ function SideBar  (props){
           </Link>
         </LinkItem>
         <LinkItem>
-          <Link to="/dashboard">
+          <Link to="all">
             <IoGrid size="1.5rem" color="#16324f"/>
             View All Products
           </Link>
         </LinkItem>
         <LinkItem>
           <Link to="add">
-            <IoReceipt size="1.5rem" color="#16324f"/>
-            {/* Manage Orders */}
+            <IoAddCircle size="1.5rem" color="#16324f"/>
             Add New Product
           </Link>
         </LinkItem>
         <LinkItem>
-          <Link to="/dashboard">
-            <IoStatsChart size="1.5rem" color="#16324f"/>
-            Sales Reports
+          <Link to="edit">
+            <IoPencil size="1.5rem" color="#16324f"/>
+            Edit Product
           </Link>
         </LinkItem>
         <LinkItem>
@@ -62,8 +61,8 @@ function SideBar  (props){
         </LinkItem>
         <LinkItem>
           <Link to="/dashboard">
-            <IoMegaphone size="1.5rem" color="#16324f"/>
-            Current Offers
+            <IoStatsChart size="1.5rem" color="#16324f"/>
+            Sales Report
           </Link>
         </LinkItem>
         <LinkItem>
