@@ -38,6 +38,20 @@ const GlobalStyles = createGlobalStyle`
     transform: scale(1);
     transition-delay: 0s;
   }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: 3px solid #9fc2e3;
+    background-color: #9fc2e3;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 3px solid #9fc2e3;
+    background-color: #2a628f50;
+  }
 `
 
 export {GlobalStyles}

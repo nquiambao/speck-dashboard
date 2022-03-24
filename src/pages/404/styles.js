@@ -28,14 +28,9 @@ const PageNotFoundStyles = styled.main`
   }
 
   p {
-    font-size: 18px;
-  }
-
-  div span {
-    display: block;
-    width: 1px;
-    height: 28px;
-    background-color: #2a628f;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
 `
 

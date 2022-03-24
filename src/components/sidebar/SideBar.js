@@ -1,100 +1,102 @@
 import React from 'react'
-import {useNavigate} from 'react-router-dom'
+
+import { signOut } from 'firebase/auth'
+import { auth } from 'libs/firebase'
+import { Link } from 'react-router-dom'
 
 import {IoHome, IoReceipt, IoLayers, IoGrid, IoStatsChart, IoStarHalf, IoPricetags, IoMegaphone, IoBagHandle, IoCar, IoAnalytics, IoCalendar, IoHelp, IoLogOut} from 'react-icons/io5'
 import {SideBarStyles, LinkItem, LinkGroup} from './styles'
 import {Button} from './../../ui/buttons'
 
 function SideBar  (props){
-  let navigation = useNavigate()
-
   function onLogoutRequest() {
-    navigation('/')
+    signOut(auth)
   }
 
   return(
   <>
     <SideBarStyles>
       <div className="dashboard-link">
-        <Button padding="10px 15px 10px 10px" display="flex" gap="15px">
+        <Link to="/dashboard">
           <IoHome size="1.5rem" color="#16324f"/>
           Dashboard
-        </Button>
+        </Link>
       </div>
       <LinkGroup>
         <LinkItem>
-          <Button padding="10px 15px 10px 10px" display="flex" gap="15px">
+          <Link to="/dashboard">
             <IoLayers size="1.5rem" color="#16324f"/>
             Summary
-          </Button>
+          </Link>
         </LinkItem>
         <LinkItem>
-          <Button padding="10px 15px 10px 10px" display="flex" gap="15px">
+          <Link to="/dashboard">
             <IoGrid size="1.5rem" color="#16324f"/>
-            Products
-          </Button>
+            View All Products
+          </Link>
         </LinkItem>
         <LinkItem>
-          <Button padding="10px 15px 10px 10px" display="flex" gap="15px">
+          <Link to="add">
             <IoReceipt size="1.5rem" color="#16324f"/>
-            Manage Orders
-          </Button>
+            {/* Manage Orders */}
+            Add New Product
+          </Link>
         </LinkItem>
         <LinkItem>
-          <Button padding="10px 15px 10px 10px" display="flex" gap="15px">
+          <Link to="/dashboard">
             <IoStatsChart size="1.5rem" color="#16324f"/>
             Sales Reports
-          </Button>
+          </Link>
         </LinkItem>
         <LinkItem>
-          <Button padding="10px 15px 10px 10px" display="flex" gap="15px">
+          <Link to="/dashboard">
             <IoStarHalf size="1.5rem" color="#16324f"/>
             Product Reviews
-          </Button>
+          </Link>
         </LinkItem>
         <LinkItem>
-          <Button padding="10px 15px 10px 10px" display="flex" gap="15px">
+          <Link to="/dashboard">
             <IoPricetags size="1.5rem" color="#16324f"/>
             Brands
-          </Button>
+          </Link>
         </LinkItem>
         <LinkItem>
-          <Button padding="10px 15px 10px 10px" display="flex" gap="15px">
+          <Link to="/dashboard">
             <IoMegaphone size="1.5rem" color="#16324f"/>
             Current Offers
-          </Button>
+          </Link>
         </LinkItem>
         <LinkItem>
-          <Button padding="10px 15px 10px 10px" display="flex" gap="15px">
+          <Link to="/dashboard">
             <IoBagHandle size="1.5rem" color="#16324f"/>
             Stock
-          </Button>
+          </Link>
         </LinkItem>
         <LinkItem>
-          <Button padding="10px 15px 10px 10px" display="flex" gap="15px">
+          <Link to="/dashboard">
             <IoCar size="1.5rem" color="#16324f"/>
             Suppliers
-          </Button>
+          </Link>
         </LinkItem>
         <LinkItem>
-          <Button padding="10px 15px 10px 10px" display="flex" gap="15px">
+          <Link to="/dashboard">
             <IoAnalytics size="1.5rem" color="#16324f"/>
             User Analytics
-          </Button>
+          </Link>
         </LinkItem>
       </LinkGroup>
       <LinkGroup>
         <LinkItem>
-          <Button padding="10px 15px 10px 10px" display="flex" gap="15px">
+          <Link to="/dashboard">
             <IoCalendar size="1.5rem" color="#16324f"/>
             Calendar
-          </Button>
+          </Link>
         </LinkItem>
         <LinkItem>
-          <Button padding="10px 15px 10px 10px" display="flex" gap="15px">
+          <Link to="/dashboard">
             <IoHelp size="1.5rem" color="#16324f"/>
             Support
-          </Button>
+          </Link>
         </LinkItem>
         <LinkItem>
           <Button onClick={onLogoutRequest} padding="10px 15px 10px 10px" display="flex" gap="15px">

@@ -4,8 +4,9 @@ import styled from 'styled-components';
 const AppBarStyles = styled.nav`
   box-shadow: 0 0 4px 1px #16324f90;
   background-color: ${props => props.bg || "transparent"};
-  position: sticky;
+  position: fixed;
   z-index: 1;
+  width: 100%;
 `;
 
 const AppBarItems = styled.ul`

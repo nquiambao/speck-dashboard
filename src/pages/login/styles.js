@@ -35,6 +35,11 @@ const LoginPageStyles = styled.div`
     color: white;
   }
 
+  .Toastify__toast--success {
+    background-color: #58BC82;
+    color: white;
+  }
+
   .Toastify__toast-icon svg {
     height: 20px;
     width: 20px;
