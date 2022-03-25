@@ -4,11 +4,6 @@ import styled from 'styled-components';
 
 const ProductDataEntryFormStyles  = styled.form`
   width: 380px;
-  input:focus, textarea:focus {
-    border-color: cornflowerblue;
-    background-color: #eff6ff;
-    outline-color: cornflowerblue;
-  }
 
   fieldset {
     display: flex;

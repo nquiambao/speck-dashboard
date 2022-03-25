@@ -16,18 +16,18 @@ function ProductDataEntryForm ({children, handleSubmit, handleProductName, handl
       <fieldset>
         <ProductName>
           <Label>Product Name</Label>
-          <Input onChange={(e)=>handleProductName(e.target.value.trim())} maxLength={30} shadow="0 0 2px 1px rgb(0 0 0 / 19%)"/>
+          <Input onChange={(e)=>handleProductName(e.target.value.trim())} maxLength={30} shadow="0 0 2px 1px #16324f30" bbottom="1px solid transparent" fshadow="0 0 2px 1px #16324f30, inset 0 0 6px #16324f30"/>
         </ProductName>
   
         <ProductPrice>
           <Label>Product Price</Label>
-          <Input onChange={(e)=>handleProductPrice(e.target.value.trim())} maxLength={8} shadow="0 0 2px 1px rgb(0 0 0 / 19%)"/>
+          <Input onChange={(e)=>handleProductPrice(e.target.value.trim())} maxLength={8} shadow="0 0 2px 1px #16324f30" bbottom="1px solid transparent" fshadow="0 0 2px 1px #16324f30, inset 0 0 6px #16324f30"/>
         </ProductPrice>
       </fieldset>
 
       <ProductDescription>
         <Label>Product Description</Label>
-        <TextArea onChange={(e)=>handleProductDescription(e.target.value.trim())} rows={6}/>
+        <TextArea onChange={(e)=>handleProductDescription(e.target.value.trim())} rows={6} shadow="0 0 2px 1px #16324f30" bbottom="1px solid transparent" fshadow="0 0 2px 1px #16324f30, inset 0 0 6px #16324f30"/>
       </ProductDescription>
 
       <div>

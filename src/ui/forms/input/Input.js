@@ -15,7 +15,7 @@ const Input = styled.input`
 
   :focus {
     border-bottom: 1px solid #2a628f;
-    box-shadow: inset 0 0 6px #16324f50;
+    box-shadow: ${props => props.fshadow || "inset 0 0 6px #16324f50"};
   }
 `
 
