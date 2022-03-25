@@ -12,10 +12,6 @@ function SideBar  (props){
   function onLogoutRequest() {
     signOut(auth)
   }
-    
-  function setActive() {
-
-  }
 
   return(
   <>

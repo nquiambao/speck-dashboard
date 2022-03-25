@@ -24,7 +24,28 @@ const PanelHeader =  styled.header`
 `
 
 const PanelBody = styled.div`
-  margin-top: 20px;
+  margin-top: 30px;
 `
 
-export {PanelStyles, PanelHeader, PanelBody}
+const AllProductsStyles = styled.div`
+  display: grid;
+  gap: 30px;
+  
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1500px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (min-width: 1800px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+`
+
+export {PanelStyles, PanelHeader, PanelBody, AllProductsStyles}

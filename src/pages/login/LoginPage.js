@@ -44,7 +44,7 @@ function LoginPage(props) {
     signInWithEmailAndPassword(auth, email, password)
     .then(res=>{
       notifySuccess("done")
-      navigate("dashboard")
+      navigate("dashboard/all")
     })
     .catch(error=>{
       notify(error)
