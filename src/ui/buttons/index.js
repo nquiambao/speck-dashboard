@@ -68,15 +68,16 @@ const IconButton = styled(Button)`
 `
 
 const SubmitButton = styled(Button)`
-  width: max-content;
-  padding: 8px 50px;
-  border-radius: 20px;
-  margin: 0 auto;
+  width: ${props => props.width || "max-content"};
+  padding: ${props => props.padding || "8px 50px"};
+  border-radius: ${props => props.radius || "20px"};
+  margin: ${props => props.margin || "0 auto"};
   text-transform: uppercase;
   letter-spacing: 2px;
   background-color: #2a628f;
   color: #edf4f4;
   transition: 0.4s ease;
+  font-weight: ${props => props.fw || "400"};
 
   :before {
     display: none;

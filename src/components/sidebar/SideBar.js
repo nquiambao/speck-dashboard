@@ -2,7 +2,7 @@ import React from 'react'
 
 import { signOut } from 'firebase/auth'
 import { auth } from 'libs/firebase'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 import {IoHome, IoAddCircle, IoPencil, IoLayers, IoGrid, IoStatsChart, IoStarHalf, IoPricetags, IoBagHandle, IoCar, IoAnalytics, IoCalendar, IoHelp, IoLogOut} from 'react-icons/io5'
 import {SideBarStyles, LinkItem, LinkGroup} from './styles'
@@ -11,6 +11,10 @@ import {Button} from './../../ui/buttons'
 function SideBar  (props){
   function onLogoutRequest() {
     signOut(auth)
+  }
+    
+  function setActive() {
+
   }
 
   return(
@@ -30,22 +34,34 @@ function SideBar  (props){
           </Link>
         </LinkItem>
         <LinkItem>
-          <Link to="all">
+          <NavLink
+            exact
+            to="all"
+            activeClassName="active"
+          >
             <IoGrid size="1.5rem" color="#16324f"/>
             View All Products
-          </Link>
+          </NavLink>
         </LinkItem>
         <LinkItem>
-          <Link to="add">
+          <NavLink
+            exact
+            to="add"
+            activeClassName="active"
+          >
             <IoAddCircle size="1.5rem" color="#16324f"/>
             Add New Product
-          </Link>
+          </NavLink>
         </LinkItem>
         <LinkItem>
-          <Link to="edit">
+          <NavLink
+            exact
+            to="edit"
+            activeClassName="active"
+          >
             <IoPencil size="1.5rem" color="#16324f"/>
             Edit Product
-          </Link>
+          </NavLink>
         </LinkItem>
         <LinkItem>
           <Link to="/dashboard">

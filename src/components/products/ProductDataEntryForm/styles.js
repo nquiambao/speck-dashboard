@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
-
-
 const ProductDataEntryFormStyles  = styled.form`
   width: 380px;
 
   fieldset {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    gap: 20px;
+    margin-bottom: 20px;
     border: none;
     padding: 0;
   }
@@ -27,10 +25,7 @@ const ProductPrice= styled.div`
 `
 
 const ProductDescription = styled.div`
-  textarea {
-    resize: none;
-    font-size: 14px;
-  }
+
 `
 
 export {ProductDataEntryFormStyles, ProductImage, ProductName, ProductPrice, ProductDescription}

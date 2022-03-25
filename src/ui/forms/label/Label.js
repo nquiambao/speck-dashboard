@@ -7,6 +7,8 @@ const Label = styled.label`
   margin: ${props => props.margin || '0'};
   font-weight: ${props => props.fw || '400'};
   cursor: ${props => props.cursor || 'auto'};
+  display: inline-block;
+  width: max-content;
 `
 
 export {Label}

@@ -17,9 +17,9 @@ function LoginPage(props) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const notify = (error) => toast.error(error.code,{
+  const notify = (error) => toast.error('Invalid login! Try again.',{
     position: "top-center",
-    autoClose: 10000,
+    autoClose: 5000,
     hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
@@ -28,7 +28,7 @@ function LoginPage(props) {
     icon: <BiMessageSquareError/>
   })
 
-  const notifySuccess = (success) => toast.success(success.code,{
+  const notifySuccess = (success) => toast.success('Welcome!',{
     position: "top-center",
     autoClose: 4000,
     hideProgressBar: true,

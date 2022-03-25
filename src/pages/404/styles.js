@@ -8,6 +8,10 @@ const PageNotFoundStyles = styled.main`
   top: 40%;
   transform: translateY(-40%);
 
+  figure {
+    margin-bottom: 20px;
+  }
+
   h1 {
     font-size: 60px;
     line-height: 144px;

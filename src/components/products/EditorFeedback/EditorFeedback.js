@@ -13,14 +13,14 @@ function EditorFeedback ({children, status, writeCompleted, ...props})  {
         !status
         ?
         <Feedback>
-          <AiOutlineCheckCircle color="d9f99d" size="12rem" />
+          <AiOutlineCheckCircle color="#58BC82" size="12rem" />
           <FeedbackMessage>
             Product Uploaded Successfully
           </FeedbackMessage>
         </Feedback>
         :
         <Feedback>
-          <AiOutlineCloudUpload color="d9f99d" size="12rem" />
+          <AiOutlineCloudUpload color="#58BC82" size="12rem" />
           <FeedbackMessage>
             Uploading New Product
           </FeedbackMessage>
@@ -28,8 +28,8 @@ function EditorFeedback ({children, status, writeCompleted, ...props})  {
       }
 
       <FeedbackOptions>
-        <Button onClick={()=>writeCompleted(false)} disabled={status} bg="tomato" color="white">Add Another Product</Button>
-        <Button onClick={()=>navigator('/dashboard/all')} bg="cornflowerblue" color="white">View All Products</Button>
+        <Button onClick={()=>writeCompleted(false)} disabled={status} bg="#ff624d" color="#fff" hoverbg="#c42b07">Add Another Product</Button>
+        <Button onClick={()=>navigator('/dashboard/all')} bg="#3e92cc" color="#fff" hoverbg="#295b82">View All Products</Button>
       </FeedbackOptions>
     </EditorFeedbackStyles>
   )

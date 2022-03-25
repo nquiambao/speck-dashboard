@@ -32,7 +32,8 @@ const SideBarStyles = styled.aside`
     font-style: normal;
   }
 
-  a:hover {
+  a:hover,
+  .active {
     color: #edf4f4;
     background-color: #2a628f;
   }
@@ -55,13 +56,15 @@ const SideBarStyles = styled.aside`
     border-bottom-right-radius: 5px;
   }
 
-  a:hover:before {
+  a:hover:before,
+  .active:before {
     background-color: #2a628f;
   }
 
-  a:hover svg {
+  a:hover svg,
+  .active svg {
     fill: #edf4f4;
-    stroke:#edf4f4;
+    stroke: #edf4f4;
   }
 `
 

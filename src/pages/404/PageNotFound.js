@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from 'libs/firebase'
 
+import Brand from 'components/branding/Brand'
 import {PageNotFoundContainer, PageNotFoundStyles} from './styles'
 
 function PageNotFound (props) {
@@ -20,6 +21,7 @@ function PageNotFound (props) {
     <>
       <PageNotFoundContainer>
         <PageNotFoundStyles>
+          <Brand/>
           <h1><span>404</span> Oops! Something went wrong.</h1>
           <div className="content">
             <p>

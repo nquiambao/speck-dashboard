@@ -9,7 +9,7 @@ import ProductPreview from 'assets/images/default.jpg';
 
 const defaults = {
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris eleifend, quam a vulputate dictum, massa quam dapibus leo, eget vulputate orci purus ut lorem. In fringilla mi in ligula. Pellentesque aliquam quam vel dolor.',
-  name: 'Product Name',
+  name: 'Ray Ban',
   price: 199.99
 }
 
