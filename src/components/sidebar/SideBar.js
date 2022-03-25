@@ -24,12 +24,6 @@ function SideBar  (props){
       </div>
       <LinkGroup>
         <LinkItem>
-          <Link to="/dashboard">
-            <IoLayers size="1.5rem" color="#16324f"/>
-            Summary
-          </Link>
-        </LinkItem>
-        <LinkItem>
           <NavLink
             exact
             to="all"
@@ -58,6 +52,12 @@ function SideBar  (props){
             <IoPencil size="1.5rem" color="#16324f"/>
             Edit Product
           </NavLink>
+        </LinkItem>
+        <LinkItem>
+          <Link to="/dashboard">
+            <IoLayers size="1.5rem" color="#16324f"/>
+            Summary
+          </Link>
         </LinkItem>
         <LinkItem>
           <Link to="/dashboard">
