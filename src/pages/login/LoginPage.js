@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { Link, useNavigate } from 'react-router-dom'
-import { signInWithEmailAndPassword } from "firebase/auth"
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BiMessageSquareError, BiMessageCheck } from 'react-icons/bi'
@@ -51,39 +51,55 @@ function LoginPage(props) {
     })
   }
 
-  return (
-    <>
-      <LoginContainer>
-        <LoginPageStyles>
-          <ToastContainer />
-          <LoginBannerSection>
-            <p>See your world clearly.</p>
-          </LoginBannerSection>
-          <LoginFormSection>
-            <Brand />
-            <p>Welcome back!</p>
-            <LoginForm onSubmit={onLoginRequest}>
-              <Label htmlFor="email" fw="600" margin="0 0 5px 0">Email</Label>
-              <Input type="text" id="email" placeholder="janedoe@gmail.com" bbottom="1px solid transparent" onChange={(e)=>setEmail(e.target.value)} />
+  const [isUser, setIsUser] = useState(false)
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setIsUser(true)
+      navigate('/dashboard')
+    } else {
+      setIsUser(false)
+    }
+  })
 
-              <Label htmlFor="password" fw="600" margin="0 0 5px 0">Password</Label>
-              <Input type="password" id="password" placeholder="●●●●●●●●" bbottom="1px solid transparent" onChange={(e)=>setPassword(e.target.value)} />
+  if (!isUser) {
+    return (
+      <>
+        <LoginContainer>
+          <LoginPageStyles>
+            <ToastContainer />
+            <LoginBannerSection>
+              <p>See your world clearly.</p>
+            </LoginBannerSection>
+            <LoginFormSection>
+              <Brand />
+              <p>Welcome back!</p>
+              <LoginForm onSubmit={onLoginRequest}>
+                <Label htmlFor="email" fw="600" margin="0 0 5px 0">Email</Label>
+                <Input type="text" id="email" placeholder="janedoe@gmail.com" bbottom="1px solid transparent" onChange={(e)=>setEmail(e.target.value)} />
+  
+                <Label htmlFor="password" fw="600" margin="0 0 5px 0">Password</Label>
+                <Input type="password" id="password" placeholder="●●●●●●●●" bbottom="1px solid transparent" onChange={(e)=>setPassword(e.target.value)} />
+  
+                <LoginExtras>
+                  <div>
+                    <Input type="checkbox" id="remember" width="auto" margin="0" cursor="pointer" />
+                    <Label htmlFor="remember" padding="0 0 0 5px" cursor="pointer">Remember me</Label>
+                  </div>
+                  <Link to="/">Forgot email/password?</Link>
+                </LoginExtras>
+  
+                <SubmitButton type="submit">Sign in</SubmitButton>
+              </LoginForm>
+            </LoginFormSection>
+          </LoginPageStyles>
+        </LoginContainer>
+      </>
+    )
+  } else {
+    return null
+  }
 
-              <LoginExtras>
-                <div>
-                  <Input type="checkbox" id="remember" width="auto" margin="0" cursor="pointer" />
-                  <Label htmlFor="remember" padding="0 0 0 5px" cursor="pointer">Remember me</Label>
-                </div>
-                <Link to="/">Forgot email/password?</Link>
-              </LoginExtras>
-
-              <SubmitButton type="submit">Sign in</SubmitButton>
-            </LoginForm>
-          </LoginFormSection>
-        </LoginPageStyles>
-      </LoginContainer>
-    </>
-  )
+  
 }
 
 export default LoginPage
