@@ -61,7 +61,9 @@ function LoginPage(props) {
     }
   })
 
-  if (!isUser) {
+  if (isUser) {
+    return null
+  } else {
     return (
       <>
         <LoginContainer>
@@ -95,8 +97,6 @@ function LoginPage(props) {
         </LoginContainer>
       </>
     )
-  } else {
-    return null
   }
 
   
