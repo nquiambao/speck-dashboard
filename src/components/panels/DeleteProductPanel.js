@@ -14,7 +14,7 @@ function DeleteProductPanel ({title, ...props}) {
             <h1>{title || "Display Panel"}</h1>
           </PanelHeader>
           <PanelBody>
-            No product selected. <Link to="/dashboard/all">Go back</Link> to select a product to delete.
+            No product selected. <Link to="/dashboard/all">Go back</Link> to select a product to remove.
           </PanelBody>
         </PanelStyles>
       </>
