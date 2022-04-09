@@ -13,6 +13,11 @@ const PanelStyles = styled.section`
   max-width: calc(100vw - 320px);
   overflow-y: auto;
   overflow-x: hidden;
+
+  a {
+    display: inline-block;
+    margin-right: 2px;
+  }
 `
 
 const PanelHeader =  styled.header`

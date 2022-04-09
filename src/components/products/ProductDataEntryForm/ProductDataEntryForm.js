@@ -11,7 +11,7 @@ const defaults = {
   price: 19999
 }
 
-function ProductDataEntryForm ({children, handleSubmit, handleProductName, handleProductPrice, setProductImage, handleProductDescription, ...props})  {
+function ProductDataEntryForm ({children, handleSubmit, handleProductName, handleProductPrice, setProductImage, handleProductDescription, def, name, description, price, image, ...props})  {
   return (
     <ProductDataEntryFormStyles {...props} onSubmit={handleSubmit}>
       <ProductImage>
@@ -22,22 +22,26 @@ function ProductDataEntryForm ({children, handleSubmit, handleProductName, handl
       <fieldset>
         <ProductName>
           <Label htmlFor="brand" fs="16px" fw="700" margin="0 0 5px 0">Brand</Label>
-          <Input id="brand" onChange={(e)=>handleProductName(e.target.value.trim())} maxLength={30} shadow="0 0 2px 1px #16324f30" bbottom="1px solid transparent" fshadow="0 0 2px 1px #16324f30, inset 0 0 6px #16324f30" margin="0" placeholder={defaults.name} />
+          <Input id="brand" onChange={(e)=>handleProductName(e.target.value.trim())} maxLength={30} shadow="0 0 2px 1px #16324f30" bbottom="1px solid transparent" fshadow="0 0 2px 1px #16324f30, inset 0 0 6px #16324f30" margin="0" placeholder={def?defaults.name:null} defaultValue={def?null:name} />
         </ProductName>
   
         <ProductPrice>
           <Label htmlFor="price" fs="16px" fw="700" margin="0 0 5px 0">Price</Label>
-          <Input id="price" onChange={(e)=>handleProductPrice(e.target.value.trim())} maxLength={8} shadow="0 0 2px 1px #16324f30" bbottom="1px solid transparent" fshadow="0 0 2px 1px #16324f30, inset 0 0 6px #16324f30" margin="0" placeholder={defaults.price} />
+          <Input id="price" onChange={(e)=>handleProductPrice(e.target.value.trim())} maxLength={8} shadow="0 0 2px 1px #16324f30" bbottom="1px solid transparent" fshadow="0 0 2px 1px #16324f30, inset 0 0 6px #16324f30" margin="0" placeholder={def?defaults.price:null} defaultValue={def?null:price} />
         </ProductPrice>
       </fieldset>
 
       <ProductDescription>
         <Label htmlFor="description" fs="16px" fw="700" margin="0 0 5px 0">Description</Label>
-        <TextArea id="description" onChange={(e)=>handleProductDescription(e.target.value.trim())} rows={7} shadow="0 0 2px 1px #16324f30" bbottom="1px solid transparent" fshadow="0 0 2px 1px #16324f30, inset 0 0 6px #16324f30" margin="0" placeholder={defaults.description} />
+        <TextArea id="description" onChange={(e)=>handleProductDescription(e.target.value.trim())} rows={7} shadow="0 0 2px 1px #16324f30" bbottom="1px solid transparent" fshadow="0 0 2px 1px #16324f30, inset 0 0 6px #16324f30" margin="0" placeholder={def?defaults.description:null} defaultValue={def?null:description} />
       </ProductDescription>
 
       <div>
-        <SubmitButton type="submit" radius="5px" fw="700" padding="10px 0" width="100%" margin="20px 0 0 0">Add Product</SubmitButton>
+        { def?
+          <SubmitButton type="submit" radius="5px" fw="700" padding="10px 0" width="100%" margin="20px 0 0 0">Add Product</SubmitButton>
+          :
+          <SubmitButton type="submit" radius="5px" fw="700" padding="10px 0" width="100%" margin="20px 0 0 0">Save Changes</SubmitButton>
+        }
       </div>
 
     </ProductDataEntryFormStyles>

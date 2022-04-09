@@ -51,7 +51,7 @@ function AddProduct ({children, ...props})  {
 
   if (isWriting) {
     return (
-      <EditorFeedback status={loading} writeCompleted={setIsWriting} />
+      <EditorFeedback status={loading} writeCompleted={setIsWriting} state='write' />
     )
   } else {
     return (
@@ -66,6 +66,9 @@ function AddProduct ({children, ...props})  {
           setProductImage={setProductImage}
           handleProductDescription={handleProductDescription}
           handleSubmit={handleSubmit}
+          buttons={false}
+          uid={null}
+          def={true}
         />
       </AddProductStyles>
     )

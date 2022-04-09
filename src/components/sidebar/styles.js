@@ -56,7 +56,6 @@ const SideBarStyles = styled.aside`
     border-bottom-right-radius: 5px;
   }
 
-  a:hover:before,
   .active:before {
     background-color: #2a628f;
   }

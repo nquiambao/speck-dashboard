@@ -5,6 +5,12 @@ const ProductPreviewStyles = styled.div`
   align-self: stretch;
   padding: ${props => props.padding || "30px"};
   background-color: ${props => props.bg || "#f8fafc"};
+
+  .buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: auto;
+  }
 `
 
 const ProductCard = styled.div`
@@ -12,18 +18,18 @@ const ProductCard = styled.div`
   border-radius: 10px;
   box-shadow: 0 2px 6px #16324f40;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   height: 100%;
 `
 
 const ProductImage = styled.div`
+  max-width: 300px;
+  max-height: 201px;
+  
   img {
-    width: 100%;
-    height: auto;
+    object-fit: cover;
   }
-`
-
-const ProductInfo = styled.div`
-  padding: 20px;
 `
 
 const ProductName = styled.h2`
@@ -42,4 +48,12 @@ const ProductDescription = styled.p`
   font-size: 14px;
 `
 
-export {ProductPreviewStyles, ProductCard, ProductImage, ProductInfo, ProductName, ProductPrice, ProductDescription}
+const ProductCardContainer = styled.div`
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`
+
+export {ProductPreviewStyles, ProductCard, ProductImage, ProductName, ProductPrice, ProductDescription, ProductCardContainer}

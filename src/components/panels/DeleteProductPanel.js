@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { EditProduct } from "components/products/widgets/EditProduct"
+import { DeleteProduct } from "components/products/widgets/DeleteProduct"
 import {PanelStyles, PanelHeader, PanelBody} from './styles'
 
-function EditProductPanel ({title, ...props}) {
+function DeleteProductPanel ({title, ...props}) {
   const key = sessionStorage.getItem('key')
   if (key == null) {
     return (
@@ -14,7 +14,7 @@ function EditProductPanel ({title, ...props}) {
             <h1>{title || "Display Panel"}</h1>
           </PanelHeader>
           <PanelBody>
-            No product selected. <Link to="/dashboard/all">Go back</Link> to select a product to edit.
+            No product selected. <Link to="/dashboard/all">Go back</Link> to select a product to delete.
           </PanelBody>
         </PanelStyles>
       </>
@@ -27,7 +27,7 @@ function EditProductPanel ({title, ...props}) {
           <h1>{title || "Display Panel"}</h1>
         </PanelHeader>
         <PanelBody>
-          <EditProduct/>
+          <DeleteProduct/>
         </PanelBody>
       </PanelStyles>
     </>
@@ -35,4 +35,4 @@ function EditProductPanel ({title, ...props}) {
   }
 }
 
-export default EditProductPanel
+export default DeleteProductPanel
