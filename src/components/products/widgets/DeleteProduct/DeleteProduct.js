@@ -31,7 +31,6 @@ function DeleteProduct ({children, ...props})  {
 
   function onDeleteRequest(e) {
     e.preventDefault()
-    console.log('delete' + key)
     setIsDeleting(true)
     deleteProduct()
     sessionStorage.clear()
