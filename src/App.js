@@ -14,7 +14,7 @@ function App() {
           <Route path="all" element={<AllProductsPanel title="View All Products"/>}/>
           <Route path="add" element={<AddProductPanel title="Add New Product"/>}/>
           <Route path="edit" element={<EditProductPanel title="Edit Product"/>}/>
-          <Route path="delete" element={<DeleteProductPanel title="Delete Product"/>}/>
+          <Route path="delete" element={<DeleteProductPanel title="Remove Product"/>}/>
         </Route>
         <Route path="*" element={<PageNotFound/>}/>
       </Routes>
