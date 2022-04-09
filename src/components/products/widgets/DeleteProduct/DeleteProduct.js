@@ -49,7 +49,7 @@ function DeleteProduct ({children, ...props})  {
   } else {
     return (
       <DeleteProductStyles  {...props}>
-        <p className="confirm">Are you sure you want to delete this product?</p>
+        <p className="confirm">Are you sure you want to remove this product?</p>
         <PreviewContainer>
           <ProductPreview
             productName={productName}
@@ -60,7 +60,7 @@ function DeleteProduct ({children, ...props})  {
           />
         </PreviewContainer>
         <ButtonStyles>
-            <Button onClick={onDeleteRequest} bg="#ff624d" color="#fff" hoverbg="#c42b07" width="fit-content" padding="1rem 5rem">Delete</Button>
+            <Button onClick={onDeleteRequest} bg="#ff624d" color="#fff" hoverbg="#c42b07" width="fit-content" padding="1rem 5rem">Remove</Button>
             <Button onClick={onReturnRequest} bg="#3e92cc" color="#fff" hoverbg="#295b82" width="fit-content" padding="1rem 5rem">Go Back</Button>
           </ButtonStyles>
         
